@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday, Dad</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #0d0d0d;
+            color: gold;
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            transition: all 1s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid gold;
+            padding: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px gold;
+            }
+            to {
+                box-shadow: 0 0 20px gold;
+            }
+        }
+
+        .father-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid gold;
+            animation: pulse 2s infinite;
+        }
+
+        .line {
+            font-size: 1.5em;
+        }
+
+        #surpriseBtn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1em;
+            color: black;
+            background-color: gold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .final-panel {
+            background-color: #111;
+        }
+
+        .message {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 20px;
+            animation: fadein 2s infinite;
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-style: italic;
+            font-size: 1em;
+        }
+    </style>
+    <script>
+        function showPanel(panelNumber) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.add('hidden'));
+            document.getElementById('panel' + panelNumber).classList.remove('hidden');
+
+            if (panelNumber === 2) {
+                setTimeout(() => {
+                    document.getElementById('surpriseBtn').classList.remove('hidden');
+                }, 10000); // 10 seconds
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="panel1" class="panel">
+        <div class="box" onclick="showPanel(2)">
+            <p>Something Special for the Best Father in the World 👑</p>
+        </div>
+    </div>
+
+    <div id="panel2" class="panel hidden">
+        <img src="https://khanstrades.com/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-08-at-16.26.08.jpeg" alt="Father's Photo" class="father-img">
+        <p class="line">A Man Of Strength, Patience, And Unconditional Love ❤️</p>
+        <button id="surpriseBtn" class="hidden" onclick="showPanel(3)">Click For Your Surprise 🎁</button>
+    </div>
+
+    <div id="panel3" class="panel hidden final-panel">
+        <h1>🎉💛 Happy Birthday, Dad 💛🎉</h1>
+        <p class="message">
+            You're My First Hero, My Forever Role Model, & The Heart Of Our Home.<br>
+            I Wouldn't Be Where I Am Today Without Your Love & Guidance.<br>
+            This Is Just A Small Way Of Saying Thank You For Everything.
+        </p>
+        <p class="signature">-MUHAMMAD ALI KHAN, CEO OF GIGALYST</p>
+    </div>
+</body>
+</html>
